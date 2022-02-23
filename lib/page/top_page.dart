@@ -28,22 +28,42 @@ class RuleListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<String> rules = [
-      'ビールが欲しくなったら => 炭酸水を飲む',
-      '食べたくなったら => ナッツを食べる',
-      'タバコが吸いたくなったら => ニコレスを吸う',
+    final List<Map<String, String>> rules = [
+      {'situation': 'ビールが欲しくなったら', 'action': '炭酸水を飲む'},
+      {'situation': '食べたくなったら', 'action': 'ナッツを食べる'},
+      {'situation': 'タバコが吸いたくなったら', 'action': 'ニコレスを吸う'},
+    ];
+
+    final List<Color> colors = [
+      Colors.blueAccent,
+      Colors.orangeAccent,
+      Colors.greenAccent,
+      Colors.redAccent,
     ];
 
     return ListView.builder(
         itemCount: rules.length,
         itemBuilder: (context, index) {
-          return const RuleWidget();
+          return RuleWidget(
+            situation: rules[index]['situation']!,
+            action: rules[index]['action']!,
+            conditionColor: colors[index % colors.length],
+          );
         });
   }
 }
 
 class RuleWidget extends StatelessWidget {
-  const RuleWidget({Key? key}) : super(key: key);
+  final String situation;
+  final String action;
+  final Color conditionColor;
+
+  const RuleWidget(
+      {Key? key,
+      required this.situation,
+      required this.action,
+      required this.conditionColor})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -51,15 +71,15 @@ class RuleWidget extends StatelessWidget {
       child: InkWell(
         onLongPress: () => {print('長押しで削除するよ')},
         child: Column(
-          children: const [
+          children: [
             ListTile(
-              title: Text('ビールが欲しくなったら',
-                  style: TextStyle(fontSize: 20, color: Colors.white)),
-              tileColor: Colors.blueAccent,
+              title: Text(situation,
+                  style: const TextStyle(fontSize: 20, color: Colors.white)),
+              tileColor: conditionColor,
             ),
             ListTile(
-              leading: Icon(Icons.subdirectory_arrow_right),
-              title: Text('炭酸水を飲む'),
+              leading: const Icon(Icons.subdirectory_arrow_right),
+              title: Text(action),
             )
           ],
         ),
