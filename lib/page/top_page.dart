@@ -54,10 +54,13 @@ class RuleListWidget extends StatelessWidget {
 }
 
 class RuleWidget extends StatelessWidget {
+  // finalを変数に指定し、コンストラクタでの初期値設定後は値を変更できないようにしています
   final String situation;
   final String action;
   final Color conditionColor;
 
+  // コンストラクタは、引数をブラケット({})で囲むことによって、名前付きパラメーターを受け取ることができます
+  // パラメータのキー名と同名のインスタンス変数を記述すると、インスタンス変数への代入も省略することができます
   const RuleWidget(
       {Key? key,
       required this.situation,
