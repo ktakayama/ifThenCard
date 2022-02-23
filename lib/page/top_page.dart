@@ -37,7 +37,33 @@ class RuleListWidget extends StatelessWidget {
     return ListView.builder(
         itemCount: rules.length,
         itemBuilder: (context, index) {
-          return Text(rules[index]);
+          return const RuleWidget();
         });
+  }
+}
+
+class RuleWidget extends StatelessWidget {
+  const RuleWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: InkWell(
+        onLongPress: () => {print('長押しで削除するよ')},
+        child: Column(
+          children: const [
+            ListTile(
+              title: Text('ビールが欲しくなったら',
+                  style: TextStyle(fontSize: 20, color: Colors.white)),
+              tileColor: Colors.blueAccent,
+            ),
+            ListTile(
+              leading: Icon(Icons.subdirectory_arrow_right),
+              title: Text('炭酸水を飲む'),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
