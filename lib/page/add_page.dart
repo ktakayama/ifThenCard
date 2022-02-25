@@ -75,6 +75,7 @@ class _RuleFormState extends State<RuleForm> {
                     ScaffoldMessenger.of(context)
                         .showSnackBar(const SnackBar(content: Text('登録しました')));
                     // print("登録した 条件: $situationText, 行動: $actionText");
+                    Navigator.pop(context);
                   }
                 },
                 child: const Text("Submit")),
