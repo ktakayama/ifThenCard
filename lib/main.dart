@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:if_then_card/model/rules.dart';
 import 'package:if_then_card/page/top_page.dart';
 
+final rulesProvider = ChangeNotifierProvider(
+  (ref) => Rules(),
+);
+
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
