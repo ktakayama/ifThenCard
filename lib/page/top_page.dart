@@ -12,19 +12,13 @@ class TopPage extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: const Text('CARD LIST'),
-          actions: [
-            const Tooltip(message: 'アイコンボタンをホバーした時に表示されるテキスト'),
-            IconButton(
-                onPressed: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => AddPage()),
-                    ),
-                icon: const Icon(Icons.add))
-          ],
         ),
         body: const RuleListWidget(),
         floatingActionButton: FloatingActionButton(
-          onPressed: () => print('ルール追加画面に遷移するよ'),
+          onPressed: () => Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const AddPage()),
+          ),
           child: const Icon(Icons.add),
         ));
   }
