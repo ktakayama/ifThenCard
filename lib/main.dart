@@ -4,7 +4,7 @@ import 'package:if_then_card/model/rules.dart';
 import 'package:if_then_card/page/top_page.dart';
 
 final rulesProvider = ChangeNotifierProvider(
-  (ref) => Rules(),
+  (ref) => Rules(rules: []),
 );
 
 void main() {

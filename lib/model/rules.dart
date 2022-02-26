@@ -2,9 +2,9 @@ import 'package:flutter/foundation.dart';
 import 'package:if_then_card/model/rule.dart';
 
 class Rules extends ChangeNotifier {
-  List<Rule> rules;
+  List<Rule> rules = [];
 
-  Rules({this.rules = const []});
+  Rules({required this.rules});
 
   void add({required String situation, required String action}) {
     rules.add(Rule(situation: situation, action: action));
