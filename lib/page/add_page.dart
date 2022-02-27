@@ -52,7 +52,6 @@ class _RuleFormState extends State<RuleForm> {
             autofocus: true,
             textAlign: TextAlign.center,
             onChanged: (text) {
-              print("条件の入力値: $text");
               situationText = text;
             },
             validator: (value) => inputValid(value),
@@ -64,7 +63,6 @@ class _RuleFormState extends State<RuleForm> {
             ),
             textAlign: TextAlign.center,
             onChanged: (text) {
-              print("行動の入力値: $text");
               actionText = text;
             },
             validator: (value) => inputValid(value),
